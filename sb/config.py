@@ -23,7 +23,7 @@ class Config:
         config = {}
 
         config["main"] = ""
-        config["build_path"] = ""
+        config["output_path"] = ""
         config["cpp"] = True
         config["Include"] = {"paths ": []}
         config["Libraries"] = {"include": []}

@@ -18,7 +18,7 @@ class SimpleBuild:
         self.libraryManager = LibraryManager()
 
 
-    def compile(self):
+    def build(self):
         includes = self.config.data["Include"]["paths"]
 
         changes = self.fileManager.updateChanges(includes)
@@ -35,17 +35,17 @@ class SimpleBuild:
         
 
         # BUILD PATH
-        build_path = self.config.data["build_path"]
+        output_path = self.config.data["output_path"]
 
-        if build_path.replace(' ', '') != "":
-            if build_path[-1] != "/":
-                build_path += '/'
+        if output_path.replace(' ', '') != "":
+            if output_path[-1] != "/":
+                output_path += '/'
 
         else:
             if not os.path.exists("./build"):
                 os.mkdir("./build")
 
-            build_path = "./build/"
+            output_path = "./build/"
 
 
         # GET CHANGES
@@ -87,7 +87,7 @@ class SimpleBuild:
 
 
         # OUTPUT
-        self.gcc.addOutput(build_path + get_name(main, True))
+        self.gcc.addOutput(output_path + get_name(main, True))
 
         print_line = "".join(['-' for i in range(len(self.gcc.input))])
         print(print_line)

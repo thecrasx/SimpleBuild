@@ -84,28 +84,3 @@ class Database:
             includes[d[0]] = d[1]
 
         return includes
-
-
-
-
-if __name__ == "__main__":
-    db = Database()
-    # db.addTables()
-
-    file = "./config.toml"
-    dm = os.path.getmtime(file)
-
-    dm = datetime.fromtimestamp(dm)
-
-    # print(dm)
-
-    # file = "\"./config.toml\""
-
-    # db.addFile(file, dm)
-
-    db.updateFile('./config.toml', dm)
-
-    a = db.getIncludes()
-
-    print(a)
-
